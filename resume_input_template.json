@@ -36,16 +36,14 @@
         "description" : "Designed and implemented scalable and efficient backend systems using Python and Django, reducing server response time by 20%."
     }
   ],
-  "abilities" : {
-    "certifications" : [
-      "CompTIA Security+",
-      "AWS Cloud Practitioner"
-    ],
-    "skills" : [
-      "C",
-      "C++"
-    ]
-  },
+  "certifications" : [
+    "CompTIA Security+",
+    "AWS Cloud Practitioner"
+  ],
+  "skills" : [
+    "C",
+    "C++"
+  ],
   "extracurricular" : [
     {
         "activity_name" : "GPT Crawler",
