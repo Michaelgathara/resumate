@@ -28,11 +28,13 @@
     {
         "job_type" : "full_time",
         "employer" : "Apple",
+        "job_title" : "Software Engineer",
         "description" : "Designed and implemented scalable and efficient backend systems using Python and Django, reducing server response time by 20%."
     },
     {
         "job_type" : "intern",
         "employer" : "Microsoft",
+        "job_title" : "Software Engineer Intern",
         "description" : "Designed and implemented scalable and efficient backend systems using Python and Django, reducing server response time by 20%."
     }
   ],
@@ -42,16 +44,25 @@
   ],
   "skills" : [
     "C",
-    "C++"
+    "C++",
+    "..."
   ],
-  "extracurricular" : [
+  "projects" : [
     {
         "activity_name" : "GPT Crawler",
-        "description" : "The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues." 
+        "description" : "The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues.",
+        "skills" : [
+          "HTML",
+          "APIs"
+        ]
     },
     {
         "activity_name" : "Personal Website",
-        "description" : "The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues." 
+        "description" : "The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues.",
+        "skills" : [
+          "HTML",
+          "JavaScript"
+        ]
     }
   ],
   "awards" : [

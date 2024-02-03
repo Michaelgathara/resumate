@@ -23,7 +23,7 @@ class Resume():
             self.employer = employer
             self.description = description
 
-    class Extracurricular:
+    class Project:
         '''
         '''
         def __init__(self, activity_name, description):
@@ -39,7 +39,7 @@ class Resume():
             self.description = description
 
 
-    def __init__(self, first_name: str, middle_name: str, last_name: str, email: str, phone_number: str, education: list[Education], experience: list[Experience], certifications: list[str], skills: list[str], extracurricular: list[Extracurricular], awards: list[Award]):
+    def __init__(self, first_name: str, middle_name: str, last_name: str, email: str, phone_number: str, education: list[Education], experience: list[Experience], certifications: list[str], skills: list[str], projects: list[Project], awards: list[Award]):
         self.first_name = first_name
         self.middle_name = middle_name
         self.last_name = last_name
@@ -49,7 +49,7 @@ class Resume():
         self.experience = experience
         self.certifications = certifications
         self.skills = skills
-        self.extracurricular = extracurricular
+        self.projects = projects
         self.awards = awards
 
     def add_education(self, new_education: Education):
@@ -64,8 +64,8 @@ class Resume():
     def add_skill(self, new_skill: str):
         self.skills.append(new_skill)
 
-    def add_extracurricular(self, new_extracurricular: Extracurricular):
-        self.extracurricular.append(new_extracurricular)
+    def add_project(self, new_project: Project):
+        self.projects.append(new_project)
 
     def add_award(self, new_award: Award):
         self.awards.append(new_award)
