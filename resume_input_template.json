@@ -1,0 +1,66 @@
+{
+  "first_name" : "John",
+  "middle_name" : "Frederick",
+  "last_name" : "Doe",
+  "email" : "j.doe@uab.edu",
+  "phone_number" : "3345556789",
+  "education" : [
+    {
+        "level" : "Masters of Science",
+        "major" : "Cybersecurity",
+        "minor" : "",
+        "school" : "University of Alabama at Birmingham",
+        "begin_date" : "August 2022",
+        "end_date" : "August 2024",
+        "gpa" : "4.00"
+    },
+    {
+        "level" : "Bachelors of Science",
+        "major" : "Computer Science",
+        "minor" : "Information Systems",
+        "school" : "University of Alabama at Birmingham",
+        "begin_date" : "August 2020",
+        "end_date" : "August 2022",
+        "gpa" : "4.00"
+    }
+  ],
+  "experience" : [
+    {
+        "job_type" : "full_time",
+        "employer" : "Apple",
+        "description" : "Designed and implemented scalable and efficient backend systems using Python and Django, reducing server response time by 20%."
+    },
+    {
+        "job_type" : "intern",
+        "employer" : "Microsoft",
+        "description" : "Designed and implemented scalable and efficient backend systems using Python and Django, reducing server response time by 20%."
+    }
+  ],
+  "abilities" : {
+    "certifications" : [
+      "CompTIA Security+",
+      "AWS Cloud Practitioner"
+    ],
+    "skills" : [
+      "C",
+      "C++"
+    ]
+  },
+  "extracurricular" : [
+    {
+        "activity_name" : "GPT Crawler",
+        "description" : "The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues." 
+    },
+    {
+        "activity_name" : "Personal Website",
+        "description" : "The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues." 
+    }
+  ],
+  "awards" : [
+    {
+      "name" : "UAB Presidential",
+      "date" : "Spring 2023",
+      "description" : "This award is given to students that receive A's in all classes enrolled in that current semester"
+    }
+  ]
+}
