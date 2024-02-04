@@ -1,7 +1,8 @@
 from flask import Flask, render_template, url_for, flash, redirect, request, jsonify, session
-
+from werkzeug.utils import secure_filename
 import json
 import time
+import os
 from os import environ as env
 from urllib.parse import quote_plus, urlencode
 
@@ -53,6 +54,8 @@ if ENV_FILE:
 app = Flask(__name__, static_folder="static")
 app.secret_key = 'We in this code'
 
+app.config['UPLOAD_FOLDER'] = 'user_uploads/'
+
 oauth = OAuth(app)
 
 oauth.register(
@@ -72,6 +75,13 @@ def home():
     print(app.debug)
     return render_template("home.html", session=session.get('user'), title="Home")
 
+ALLOWED_EXTENSIONS = {'pdf'}
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
 @app.route('/submission')
 def submission():
     if not app.debug: 
@@ -89,6 +99,16 @@ def submission():
 @app.route('/submit_resume', methods=['POST'])
 def submit_resume():
     if request.method == 'POST':
+        num = 0
+        if 'file' in request.files:
+            file = request.files['file']
+            if file.filename == '':
+                flash('No selected file')
+            num = file.filename.split("_")[1]
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        
         job_desc = request.form.get('job_desc', '')
         resume_data = {
             "experience": [],
@@ -124,6 +144,10 @@ def submit_resume():
             }
             resume_data["projects"].append(project)
 
+        if num != 0:
+            fileloc = f"pdf_parser/resume_{num}.json"
+            resume_data = json.load(fileloc)
+
         # print(jsonify(resume_data))
         resume_obj = resume.Resume(json.dumps(resume_data))
 
@@ -131,13 +155,13 @@ def submit_resume():
         prompt = job_desc + "\n" + str(resume_obj)
 
         # print(f"Prompt: {prompt}")        
-        mongo.add_resume(session["user"]["userinfo"]["email"] if not app.debug else "ajnettles@gmail.com", prompt)
+        # mongo.add_resume(session["user"]["userinfo"]["email"] if not app.debug else "ajnettles@gmail.com", prompt)
 
         completion_object = call_gpt(prompt)
 
         response_text = str(completion_object.choices[0].message.content)
 
-        mongo.add_resumeGPT_pair(prompt, response_text)
+        # mongo.add_resumeGPT_pair(prompt, response_text)
 
         return response_text
     

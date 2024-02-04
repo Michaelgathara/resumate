@@ -2,6 +2,8 @@
     "experiences": [
         {
             "job_title": "Software Developer Intern",
+            "employer": "Github",
+            "job_type": "full_time",
             "description": [
                 "Designed and implemented scalable cloud infrastructure using Terraform, leveraging Amazon S3 for efficient storage of automated testing dashboards hosted on Cloudfront.",
                 "Leveraged GitHub Actions to develop a real-time dashboard, providing comprehensive insights into the outcomes of tests conducted within the last 30 days, allowing teams to tailor it to their own requirements",
@@ -10,6 +12,8 @@
         },
         {
             "job_title": "Full Stack Developer - Website Lead | web applications",
+            "employer": "Web Applications",
+            "job_type": "full_time",
             "description": [
                 "Led a team of 7 members in developing a full-stack application for the Hackathon allowing the website to have a streamlined registration process while simultaneously providing an interactive platform for participants to view and join different teams",
                 "Did code reviews on peer\u2019s work to ensure quality of the code",

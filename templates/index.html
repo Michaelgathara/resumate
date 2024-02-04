@@ -275,7 +275,7 @@
                 </div>
                 <div class="form-input">
                     <!-- <input type="text" id="job_desc" class="job-desc" name="job_desc" placeholder="Job Description"> -->
-                    <textarea placeholder="Job Description" name="job-desc" id="job_desc" class="job-desc" rows="14" cols="10"> </textarea>
+                    <textarea placeholder="Job Description" name="job-desc" id="job_desc" class="job-desc" rows="14" cols="10" required> </textarea>
                 </div>
                 <div class="form-input">
                     <p class="left-text">Resume Feedback</p>
@@ -343,26 +343,26 @@
             });
         });
 
-        // $(document).ready(function() {
-        //     $('#resume-form').on('submit', function(e) {
-        //         e.preventDefault();  // Prevent the default form submission
-        //         var formData = $(this).serialize();  // Serialize the form data
-        //         // Perform the AJAX request
-        //         $.ajax({
-        //             url: '/submit_resume',  // Your Flask endpoint
-        //             type: 'POST',
-        //             data: formData,
-        //             success: function(response) {
-        //                 // Update the feedback textarea with the response
-        //                 $('#feedback').val(response);
-        //             },
-        //             error: function(xhr, status, error) {
-        //                 // Handle any errors here
-        //                 console.error("Error occurred: " + error);
-        //             }
-        //         });
-        //     });
-        // });
+        $(document).ready(function() {
+            $('#resume-form').on('submit', function(e) {
+                e.preventDefault();  // Prevent the default form submission
+                var formData = $(this).serialize();  // Serialize the form data
+                // Perform the AJAX request
+                $.ajax({
+                    url: '/submit_resume',  // Your Flask endpoint
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        // Update the feedback textarea with the response
+                        $('#feedback').val(response);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle any errors here
+                        console.error("Error occurred: " + error);
+                    }
+                });
+            });
+        });
 
     </script>
 </body>
