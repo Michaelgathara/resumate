@@ -2,25 +2,28 @@
 
 <head>
     <title>Resumate</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
     <script src="https://unpkg.com/starback@2.1.1/dist/starback.global.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        $(document).on('change', '.file-input', function() {
-        
+        $(document).on('change', '.file-input', function () {
 
-        var filesCount = $(this)[0].files.length;
-        
-        var textbox = $(this).prev();
-      
-        if (filesCount === 1) {
-          var fileName = $(this).val().split('\\').pop();
-          textbox.text(fileName);
-        } else {
-          textbox.text(filesCount + ' files selected');
-        }
-      });
+
+            var filesCount = $(this)[0].files.length;
+
+            var textbox = $(this).prev();
+
+            if (filesCount === 1) {
+                var fileName = $(this).val().split('\\').pop();
+                textbox.text(fileName);
+            } else {
+                textbox.text(filesCount + ' files selected');
+            }
+        });
     </script>
     <style>
         body,
@@ -38,6 +41,17 @@
             padding-top: 20px;
         }
 
+        /* .left {
+            left: 0;
+            background-color: #111;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            position: fixed;
+        } */
+
         .left {
             left: 0;
             background-color: #111;
@@ -45,6 +59,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow-y: auto; /* Allow vertical scrolling */
+            position: fixed;
+            height: 100%;
+            width: 50%;
+            top: 0;
+            bottom: 0;
         }
 
         .right {
@@ -54,26 +74,55 @@
         }
 
         .centered,
-        .centered-form {
+        /* .centered-form {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
             width: 100%;
+        } */
+
+        .centered-form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 450px;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .file-drop-area {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 450px;
+            max-width: 100%;
+            padding: 25px;
+            border: 1px dashed rgba(255, 255, 255, 0.4);
+            border-radius: 3px;
+            transition: 0.2s;
         }
 
         .form-input {
             margin-bottom: 20px;
         }
 
-        .form-input input, .form-input textarea {
-            width: 90%;
+        .form-input input,
+        .form-input textarea {
+            width: 450px;
+            max-width: 90%;
             padding: 10px;
             margin: 6px 0;
             display: inline-block;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 9px;
             box-sizing: border-box;
         }
 
@@ -95,7 +144,7 @@
             height: 100%;
         }
 
-        .file-drop-area {
+        /* .file-drop-area {
             position: relative;
             display: flex;
             align-items: center;
@@ -105,8 +154,8 @@
             border: 1px dashed rgba(255, 255, 255, 0.4);
             border-radius: 3px;
             transition: 0.2s;
-        
-        }
+
+        } */
 
         .choose-file-button {
             flex-shrink: 0;
@@ -136,9 +185,19 @@
             width: 100%;
             cursor: pointer;
             opacity: 0;
-        
+
         }
-        
+
+        .add-button {
+            border-radius: 50%;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.8);;
+        }
+
+        .job-desc {
+            height: 450px;
+            vertical-align: text-top;
+        }
     </style>
 </head>
 
@@ -147,51 +206,98 @@
         <div class="split left">
             <canvas id="canvas" class="canvas"></canvas>
             <form class="centered-form" method="post" action="/submit_resume" enctype="multipart/form-data">
-
-                <div class="file-drop-area">
-                    <span class="choose-file-button">Choose files</span>
-                    <span class="file-message">or drag and drop files here</span>
-                    <input class="file-input" type="file" name="resume">
-                </div>
                 <div class="form-input">
-                    <input type="text" id="name" name="name" placeholder="Name">
-                </div>
-                <div class="form-input">
-                    <input type="text" id="education" name="education" placeholder="Education">
-                </div>
-                <div class="form-input">
-                    <input type="text" id="experience" name="experience" placeholder="Experience">
-                </div>
-                <div class="form-input">
-                    <input type="text" id="projects" name="projects" placeholder="Projects">
-                </div>
-                <div class="form-input">
-                    <input type="text" id="skills" name="skills" placeholder="Skills">
-                </div>
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Submit Resume</button>
+                    <div class="file-drop-area">
+                        <span class="choose-file-button">Choose files</span>
+                        <span class="file-message">or drag and drop files here</span>
+                        <input class="file-input" type="file" name="resume">
+                    </div>
+                    <br><br>
+                    <div id="education-section">
+                        <h4>Education</h4>
+                        <br>
+                        <button type="button" class="add-button" onclick="addEducation()">+</button>
+                    </div>
+                    <br>
+                    <div id="experience-section">
+                        <h4>Experience</h4>
+                        <br>
+                        <button type="button" class="add-button" onclick="addExperience()">+</button>
+                    </div>
+                    <br>
+                    <div id="projects-section">
+                        <h4>Projects</h4>
+                        <br>
+                        <button type="button" class="add-button" onclick="addProject()">+</button>
+                    </div>
+                    <br>
+                    <div id="skills-section">
+                        <h4>Skills</h4>
+                        <br>
+                        <input type="text" id="skills" name="skills" placeholder="Skills (comma separated)">
+                    </div>
+                    <br>
+                    <div class="form-input">
+                        <button type="submit" class="submit-button">Submit Resume</button>
+                    </div>
                 </div>
             </form>
         </div>
         <div class="split right">
             <form class="centered-form" method="post" action="/submit_job">
                 <div class="form-input">
-                    <input type="text" id="job-link" name="job-link" placeholder="job-link">
+                    <input type="text" id="job_desc" class="job-desc" name="job_desc" placeholder="Job Description">
                 </div>
             </form>
         </div>
     </div>
     <script>
+
         const canvas = document.getElementById('canvas')
         const starback = new Starback(canvas, {
             type: 'dot',
-            starSize: [0,2],
+            starSize: [0, 2],
             quantity: 500,
             direction: 225,
             backgroundColor: ['#000', '#000', '#0e1118', '#0e1118', '#232b3e'],
             randomOpacity: true,
         })
-      </script>
+        function addEducation() {
+            var educationSection = document.getElementById('education-section');
+            var newField = document.createElement('div');
+            newField.innerHTML = `
+                <input type="text" name="university[]" placeholder="University">
+                <input type="text" name="degree[]" placeholder="Degree">
+                <br>
+            `;
+            educationSection.appendChild(newField);
+        }
+
+        function addExperience() {
+            var experienceSection = document.getElementById('experience-section');
+            var newField = document.createElement('div');
+            newField.innerHTML = `
+                <input type="text" name="company[]" placeholder="Company">
+                <input type="text" name="title[]" placeholder="Title">
+                <textarea name="description[]" placeholder="Description"></textarea>
+                <br>
+            `;
+            experienceSection.appendChild(newField);
+        }
+
+        function addProject() {
+            var projectsSection = document.getElementById('projects-section');
+            var newField = document.createElement('div');
+            newField.innerHTML = `
+                <input type="text" name="project_name[]" placeholder="Name">
+                <input type="text" name="technologies_used[]" placeholder="Technologies Used">
+                <textarea name="project_description[]" placeholder="Description"></textarea>
+                <br>
+            `;
+            projectsSection.appendChild(newField);
+        }
+
+    </script>
 </body>
 
 </html>
