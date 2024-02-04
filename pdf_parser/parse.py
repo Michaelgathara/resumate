@@ -134,6 +134,6 @@ def build_json(rnum):
     with open(f"resume_{rnum}.json", "w") as out:
         json.dump(resume, out)
 
-
-for i in range(7):
-    build_json(i)
+if __name__ == '__main__':
+    for i in range(7):
+        build_json(i)
