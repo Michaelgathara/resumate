@@ -8,6 +8,41 @@ from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 
+import resume
+from dotenv import load_dotenv
+from openai import OpenAI
+MODEL = "gpt-4"
+# MODEL = "gpt-3.5-turbo"
+load_dotenv()
+SYSTEM = """
+You are an expert resume rewriting system,
+
+you will be given different parts of the resume, each with multiple semicolon separated sentences to rephrase based on a job description I will give you.
+I want you to make minimal changes to the sentence to match the job description, but if you think a sentence is okay,
+then do not rephrase it at all and simply return it.
+
+This task requires you to take a deep breath before changing a sentence.
+You are to be accurate, do not be over-confident. Precision is what you will be judged on.
+Also, think about how each change contributes to sentence being better suited to the job description.
+
+Here is the input format,
+Job description
+section name
+sentences to be rephrased
+"""
+
+client = OpenAI()
+
+def call_gpt(prompt: str, model: str=MODEL, system_prompt: str=SYSTEM):
+    completion = client.chat.completions.create(
+        model=model,
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": prompt}
+        ]
+    )
+    return completion
+
 ENV_FILE = find_dotenv()
 if ENV_FILE:
     load_dotenv(ENV_FILE)
@@ -50,7 +85,7 @@ def submission():
 @app.route('/submit_resume', methods=['POST'])
 def submit_resume():
     if request.method == 'POST':
-            # Initialize the main JSON structure
+        job_desc = request.form.get('job_desc', '')
         resume_data = {
             "experience": [],
             "certifications": [], 
@@ -85,9 +120,17 @@ def submit_resume():
             }
             resume_data["projects"].append(project)
 
-        print(jsonify(resume_data))
+        # print(jsonify(resume_data))
+        resume_obj = resume.Resume(json.dumps(resume_data))
 
-        return jsonify(resume_data)
+        prompt = job_desc + "\n" + str(resume_obj)
+
+        completion_object = call_gpt(prompt)
+
+        response_text = str(completion_object.choices[0].message.content)
+        print(response_text)
+
+        return response_text
     
 
 # def submit_resume():
