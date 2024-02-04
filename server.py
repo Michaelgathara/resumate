@@ -9,11 +9,30 @@ app = Flask(__name__)
 def index():
     return render_template('index.html', title='Home')
 
-@app.route('/submit_resume', methods=['GET', 'POST'])
+@app.route('/submit_resume', methods=['POST'])
 def submit_resume():
     if request.method == 'POST':
-        filename = request.files['resume'].filename
-        return render_template("submit_resume.html", title="Resume Review", fileName = filename)
+        universities = request.form.getlist('university')
+        degrees = request.form.getlist('degree')
+        companies = request.form.getlist('company')
+        titles = request.form.getlist('title')
+        skills = request.form.get('skills', '')
+
+        job_desc = request.form.get('job_desc', '')
+
+        print(f"Universities: {universities}")
+        print(f"Degrees: {degrees}")
+        print(f"Companies: {companies}")
+        print(f"Titles: {titles}")
+        print(f"Skills: {skills}")
+        print(f"Job Desc: {job_desc}")
+
+        return "Form submitted"
+        
+        # filename = request.files['resume'].filename
+        # return render_template("submit_resume.html", title="Resumate", fileName = filename)
+
+
 
 # @app.route('/submit_resume', methods=['GET', 'POST'])
 # def submit_resume():

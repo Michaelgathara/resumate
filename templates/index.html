@@ -122,7 +122,7 @@
             margin: 6px 0;
             display: inline-block;
             border: 1px solid #ccc;
-            border-radius: 9px;
+            border-radius: 12px;
             box-sizing: border-box;
         }
 
@@ -141,7 +141,7 @@
         }
 
         .canvas {
-            height: 100%;
+            height: 1200px;
         }
 
         /* .file-drop-area {
@@ -237,17 +237,20 @@
                         <input type="text" id="skills" name="skills" placeholder="Skills (comma separated)">
                     </div>
                     <br>
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Submit Resume</button>
-                    </div>
+                    <input type="hidden" id="hidden_job_desc" name="job_desc">
+                    <br>
+                </div>
+                <div class="form-input">
+                    <button type="submit" class="submit-button">Submit Resume & Job</button>
                 </div>
             </form>
         </div>
         <div class="split right">
-            <form class="centered-form" method="post" action="/submit_job">
+            <form class="centered-form" method="post" action="/submit_resume">
                 <div class="form-input">
                     <input type="text" id="job_desc" class="job-desc" name="job_desc" placeholder="Job Description">
                 </div>
+                <br>
             </form>
         </div>
     </div>
@@ -256,7 +259,7 @@
         const canvas = document.getElementById('canvas')
         const starback = new Starback(canvas, {
             type: 'dot',
-            starSize: [0, 2],
+            starSize: [0, 1],
             quantity: 500,
             direction: 225,
             backgroundColor: ['#000', '#000', '#0e1118', '#0e1118', '#232b3e'],
@@ -266,8 +269,8 @@
             var educationSection = document.getElementById('education-section');
             var newField = document.createElement('div');
             newField.innerHTML = `
-                <input type="text" name="university[]" placeholder="University">
-                <input type="text" name="degree[]" placeholder="Degree">
+                <input type="text" id="university" name="university" placeholder="University">
+                <input type="text" id="degree" name="degree" placeholder="Degree">
                 <br>
             `;
             educationSection.appendChild(newField);
@@ -277,9 +280,9 @@
             var experienceSection = document.getElementById('experience-section');
             var newField = document.createElement('div');
             newField.innerHTML = `
-                <input type="text" name="company[]" placeholder="Company">
-                <input type="text" name="title[]" placeholder="Title">
-                <textarea name="description[]" placeholder="Description"></textarea>
+                <input type="text" id="company" name="company" placeholder="Company">
+                <input type="text" id="title" name="title" placeholder="Title">
+                <textarea id="description" name="description" placeholder="Description"></textarea>
                 <br>
             `;
             experienceSection.appendChild(newField);
@@ -289,14 +292,21 @@
             var projectsSection = document.getElementById('projects-section');
             var newField = document.createElement('div');
             newField.innerHTML = `
-                <input type="text" name="project_name[]" placeholder="Name">
-                <input type="text" name="technologies_used[]" placeholder="Technologies Used">
-                <textarea name="project_description[]" placeholder="Description"></textarea>
+                <input type="text" id="project_name" name="project_name" placeholder="Name">
+                <input type="text" name="technologies_used" placeholder="Technologies Used">
+                <textarea name="project_description" placeholder="Description"></textarea>
                 <br>
             `;
             projectsSection.appendChild(newField);
         }
 
+        document.addEventListener("DOMContentLoaded", function() {
+            const resumeForm = document.querySelector(".centered-form");
+            resumeForm.addEventListener("submit", function() {
+                const jobDesc = document.getElementById("job_desc").value;
+                document.getElementById("hidden_job_desc").value = jobDesc;
+            });
+        });
     </script>
 </body>
 
