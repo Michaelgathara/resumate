@@ -233,7 +233,7 @@
                     <div class="file-drop-area">
                         <span class="choose-file-button">Choose files</span>
                         <span class="file-message">or drag and drop files here</span>
-                        <input class="file-input" type="file" name="resume">
+                        <input class="file-input" type="file" id="resume" name="resume">
                     </div>
                     <!-- <br><br> -->
                     <!-- <div id="education-section">
@@ -343,27 +343,26 @@
             });
         });
 
-        $(document).ready(function() {
-            $('#resume-form').on('submit', function(e) {
-                e.preventDefault();  // Prevent the default form submission
-                var formData = $(this).serialize();  // Serialize the form data
-
-                // Perform the AJAX request
-                $.ajax({
-                    url: '/submit_resume',  // Your Flask endpoint
-                    type: 'POST',
-                    data: formData,
-                    success: function(response) {
-                        // Update the feedback textarea with the response
-                        $('#feedback').val(response);
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle any errors here
-                        console.error("Error occurred: " + error);
-                    }
-                });
-            });
-        });
+        // $(document).ready(function() {
+        //     $('#resume-form').on('submit', function(e) {
+        //         e.preventDefault();  // Prevent the default form submission
+        //         var formData = $(this).serialize();  // Serialize the form data
+        //         // Perform the AJAX request
+        //         $.ajax({
+        //             url: '/submit_resume',  // Your Flask endpoint
+        //             type: 'POST',
+        //             data: formData,
+        //             success: function(response) {
+        //                 // Update the feedback textarea with the response
+        //                 $('#feedback').val(response);
+        //             },
+        //             error: function(xhr, status, error) {
+        //                 // Handle any errors here
+        //                 console.error("Error occurred: " + error);
+        //             }
+        //         });
+        //     });
+        // });
 
     </script>
 </body>
