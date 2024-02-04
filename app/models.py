@@ -1,32 +1,83 @@
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+# from flask_sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy()
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    resumes = db.relationship('Resume', backref='author', lazy=True)
+
+class Resume():
+    class Education:
+        '''
+        '''
+        def __init__(self, level, major, minor, school, begin_date, end_date, gpa):
+            self.level = level # Level could also be referenced as degree level
+            self.major = major
+            self.minor = minor
+            self.school = school
+            self.begin_date = begin_date
+            self.end_date = end_date
+            self.gpa = gpa
+
+    class Experience:
+        '''
+        '''
+        def __init__(self, job_type, employer, description):
+            self.job_type = job_type
+            self.employer = employer
+            self.description = description
+
+    class Project:
+        '''
+        '''
+        def __init__(self, activity_name, description):
+            self.activity_name = activity_name
+            self.description = description
+
+    class Award:
+        '''
+        '''
+        def __init__(self, name, date, description):
+            self.name = name
+            self.date = date
+            self.description = description
+
+
+    def __init__(self, first_name: str, middle_name: str, last_name: str, email: str, phone_number: str, education: list[Education], experience: list[Experience], certifications: list[str], skills: list[str], projects: list[Project], awards: list[Award]):
+        self.first_name = first_name
+        self.middle_name = middle_name
+        self.last_name = last_name
+        self.email = email
+        self.phone_number = phone_number
+        self.education = education
+        self.experience = experience
+        self.certifications = certifications
+        self.skills = skills
+        self.projects = projects
+        self.awards = awards
+
+    def add_education(self, new_education: Education):
+        self.education.append(new_education)
     
-    def __repr__(self):
-        return f'<User {self.username}>'
+    def add_experience(self, new_experience: Experience):
+        self.experience.append(new_experience)
 
-class Resume(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.Text, nullable=False)
-    submission_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    feedback = db.Column(db.Text)  # This field can be used to store feedback
-    
-    def __repr__(self):
-        return f'<Resume {self.id} by {self.author.username}>'
+    def add_certification(self, new_certification: str):
+        self.certifications.append(new_certification)
 
-class JobPosting(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.Text, nullable=False)
-    posted_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    def add_skill(self, new_skill: str):
+        self.skills.append(new_skill)
+
+    def add_project(self, new_project: Project):
+        self.projects.append(new_project)
+
+    def add_award(self, new_award: Award):
+        self.awards.append(new_award)
+
+class JobPosting():
+    # id = db.Column(db.Integer, primary_key=True)
+    # title = db.Column(db.String(100), nullable=False)
+    # description = db.Column(db.Text, nullable=False)
+    # posted_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+   
+    # def __repr__(self):
+    #     return f'<JobPosting {self.title}>'
     
-    def __repr__(self):
-        return f'<JobPosting {self.title}>'
+    def __init__(self):
+        raise NotImplementedError
