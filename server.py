@@ -1,12 +1,52 @@
-from flask import Flask, render_template, url_for, flash, redirect, request, jsonify
+from flask import Flask, render_template, url_for, flash, redirect, request, jsonify, session
+
+import json
+import time
+from os import environ as env
+from urllib.parse import quote_plus, urlencode
+
+from authlib.integrations.flask_client import OAuth
+from dotenv import find_dotenv, load_dotenv
+
+ENV_FILE = find_dotenv()
+if ENV_FILE:
+    load_dotenv(ENV_FILE)
 
 app = Flask(__name__)
+app.secret_key = 'We in this code'
+
+oauth = OAuth(app)
+
+oauth.register(
+    "auth0",
+    client_id=env.get("AUTH0_CLIENT_ID"),
+    client_secret=env.get("AUTH0_CLIENT_SECRET"),
+    client_kwargs={
+        "scope": "openid profile email",
+    },
+    server_metadata_url=f'https://{env.get("AUTH0_DOMAIN")}/.well-known/openid-configuration',
+)
+
 
 @app.route('/')
 @app.route('/index')
-@app.route('/home')
-def index():
-    return render_template('index.html', title='Home')
+def home():
+    print(app.debug)
+    return render_template("index.html", session=session.get('user'), title="Home")
+
+@app.route('/submission')
+def submission():
+    if not app.debug: 
+        print(session)
+        try:
+            expiry = session["user"]["userinfo"]["exp"]
+            if session.get("user", "NOACCESS") == "NOACCESS" or time.time() > expiry:
+                session = None
+                return redirect("/")
+        except:
+            return redirect("/")
+    else:
+        return render_template('submission.html', title='Submission')
 
 @app.route('/submit_resume', methods=['POST'])
 def submit_resume():
@@ -75,6 +115,70 @@ def submit_resume():
 
 
 
+@app.route("/callback", methods=["GET", "POST"])
+def callback():
+    token = oauth.auth0.authorize_access_token()
+    session["user"] = token
+    return redirect("/submission")
+
+
+@app.route("/login")
+def login():
+    if not app.debug:
+        return oauth.auth0.authorize_redirect(
+            redirect_uri=url_for("callback", _external=True)
+        )
+    else:
+        return redirect("/submission")
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(
+        "https://"
+        + env.get("AUTH0_DOMAIN")
+        + "/v2/logout?"
+        + urlencode(
+            {
+                "returnTo": url_for("home", _external=True),
+                "client_id": env.get("AUTH0_CLIENT_ID"),
+            },
+            quote_via=quote_plus,
+        )
+    )
+
+@app.route("/callback", methods=["GET", "POST"])
+def callback():
+    token = oauth.auth0.authorize_access_token()
+    session["user"] = token
+    return redirect("/submission")
+
+
+@app.route("/login")
+def login():
+    if not app.debug:
+        return oauth.auth0.authorize_redirect(
+            redirect_uri=url_for("callback", _external=True)
+        )
+    else:
+        return redirect("/submission")
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(
+        "https://"
+        + env.get("AUTH0_DOMAIN")
+        + "/v2/logout?"
+        + urlencode(
+            {
+                "returnTo": url_for("home", _external=True),
+                "client_id": env.get("AUTH0_CLIENT_ID"),
+            },
+            quote_via=quote_plus,
+        )
+    )
+
 # @app.route('/submit_resume', methods=['GET', 'POST'])
 # def submit_resume():
 #     form = ResumeForm()
@@ -103,4 +207,4 @@ def submit_resume():
 #     return render_template('job_listings.html', jobs=jobs, title='Job Listings')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port='7976', debug=True)
+    app.run(host='0.0.0.0', port=env.get("PORT", 7976 if app.debug else 443), debug=True)

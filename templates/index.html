@@ -134,6 +134,10 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 1;
         }
 
         .submit-button:hover {
@@ -203,7 +207,6 @@
 
 <body>
     <div class="main-container">
-        <div class="split left">
             <canvas id="canvas" class="canvas"></canvas>
             <form class="centered-form" method="post" action="/submit_resume" enctype="multipart/form-data">
                 <div class="form-input">
@@ -258,6 +261,8 @@
 
         const canvas = document.getElementById('canvas')
         const starback = new Starback(canvas, {
+            width: window.innerWidth,
+            height: window.innerHeight,
             type: 'dot',
             starSize: [0, 1],
             quantity: 500,
