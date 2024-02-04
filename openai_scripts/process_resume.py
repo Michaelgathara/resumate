@@ -1,9 +1,11 @@
 import typing
 import json
 import resume
+from dotenv import load_dotenv
 from openai import OpenAI
 MODEL = "gpt-4"
 # MODEL = "gpt-3.5-turbo"
+load_dotenv()
 SYSTEM = """
 You are an expert resume rewriting system,
 
@@ -21,7 +23,7 @@ section name
 sentences to be rephrased
 """
 
-client = OpenAI(api_key="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")
+client = OpenAI()
 
 def call_gpt(prompt: str, model: str=MODEL, system_prompt: str=SYSTEM):
     completion = client.chat.completions.create(
