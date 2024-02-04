@@ -23,12 +23,13 @@ def submit_resume():
         titles = request.form.getlist('title')
         descriptions = request.form.getlist('description')
         experience_count = len(experiences)
+        print(f"Exp len: {experience_count}")
         for i in range(1, int(experience_count) + 1):
             experience = {
                 "job_type": 'full_time',
-                "employer": experiences[i],
-                "job_title": titles[i],
-                "description": descriptions[i]
+                "employer": experiences[i-1],
+                "job_title": titles[i-1],
+                "description": descriptions[i-1]
             }
             resume_data["experience"].append(experience)
 
@@ -39,13 +40,15 @@ def submit_resume():
         project_count = len(projects)
         for i in range(1, int(project_count) + 1):
             project = {
-                "activity_name": projects[i],
-                "description": project_descriptions[i],
-                "skills": skills[i] 
+                "activity_name": projects[i-1],
+                "description": project_descriptions[i-1],
+                "skills": skills[i-1] 
             }
             resume_data["projects"].append(project)
 
         print(jsonify(resume_data))
+
+        return jsonify(resume_data)
     
 
 # def submit_resume():
