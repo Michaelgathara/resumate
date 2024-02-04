@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, flash, redirect, request
-
+from json import jsonify
 
 app = Flask(__name__)
 
@@ -12,22 +12,61 @@ def index():
 @app.route('/submit_resume', methods=['POST'])
 def submit_resume():
     if request.method == 'POST':
-        universities = request.form.getlist('university')
-        degrees = request.form.getlist('degree')
-        companies = request.form.getlist('company')
+            # Initialize the main JSON structure
+        resume_data = {
+            "experience": [],
+            "certifications": [], 
+            "skills": request.form.getlist('skills'), 
+            "projects": []
+        }
+
+        experiences = request.form.getlist('company')
         titles = request.form.getlist('title')
-        skills = request.form.get('skills', '')
+        descriptions = request.form.getlist('description')
+        experience_count = len(experiences)
+        for i in range(1, int(experience_count) + 1):
+            experience = {
+                "job_type": 'full_time',
+                "employer": experiences[i],
+                "job_title": titles[i],
+                "description": descriptions[i]
+            }
+            resume_data["experience"].append(experience)
 
-        job_desc = request.form.get('job_desc', '')
+        projects = request.form.getlist('project_name')
+        skills = request.form.getlist('technologies_used')
+        del descriptions
+        project_descriptions = request.form.getlist('project_description')
+        project_count = len(projects)
+        for i in range(1, int(project_count) + 1):
+            project = {
+                "activity_name": projects[i],
+                "description": project_descriptions[i],
+                "skills": skills[i] 
+            }
+            resume_data["projects"].append(project)
 
-        print(f"Universities: {universities}")
-        print(f"Degrees: {degrees}")
-        print(f"Companies: {companies}")
-        print(f"Titles: {titles}")
-        print(f"Skills: {skills}")
-        print(f"Job Desc: {job_desc}")
+        return jsonify(resume_data)
+    
 
-        return "Form submitted"
+# def submit_resume():
+#     if request.method == 'POST':
+#         universities = request.form.getlist('university')
+#         degrees = request.form.getlist('degree')
+#         companies = request.form.getlist('company')
+#         titles = request.form.getlist('title')
+#         skills = request.form.get('skills', '')
+
+#         job_desc = request.form.get('job_desc', '')
+
+#         print(f"Universities: {universities}")
+#         print(f"Degrees: {degrees}")
+#         print(f"Companies: {companies}")
+#         print(f"Titles: {titles}")
+#         print(f"Skills: {skills}")
+#         print(f"Job Desc: {job_desc}")
+
+#         return "Form submitted"
         
         # filename = request.files['resume'].filename
         # return render_template("submit_resume.html", title="Resumate", fileName = filename)

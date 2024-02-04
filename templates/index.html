@@ -212,12 +212,12 @@
                         <span class="file-message">or drag and drop files here</span>
                         <input class="file-input" type="file" name="resume">
                     </div>
-                    <br><br>
-                    <div id="education-section">
+                    <!-- <br><br> -->
+                    <!-- <div id="education-section">
                         <h4>Education</h4>
                         <br>
                         <button type="button" class="add-button" onclick="addEducation()">+</button>
-                    </div>
+                    </div> -->
                     <br>
                     <div id="experience-section">
                         <h4>Experience</h4>
@@ -265,16 +265,16 @@
             backgroundColor: ['#000', '#000', '#0e1118', '#0e1118', '#232b3e'],
             randomOpacity: true,
         })
-        function addEducation() {
-            var educationSection = document.getElementById('education-section');
-            var newField = document.createElement('div');
-            newField.innerHTML = `
-                <input type="text" id="university" name="university" placeholder="University">
-                <input type="text" id="degree" name="degree" placeholder="Degree">
-                <br>
-            `;
-            educationSection.appendChild(newField);
-        }
+        // function addEducation() {
+        //     var educationSection = document.getElementById('education-section');
+        //     var newField = document.createElement('div');
+        //     newField.innerHTML = `
+        //         <input type="text" id="university" name="university" placeholder="University">
+        //         <input type="text" id="degree" name="degree" placeholder="Degree">
+        //         <br>
+        //     `;
+        //     educationSection.appendChild(newField);
+        // }
 
         function addExperience() {
             var experienceSection = document.getElementById('experience-section');
@@ -293,7 +293,7 @@
             var newField = document.createElement('div');
             newField.innerHTML = `
                 <input type="text" id="project_name" name="project_name" placeholder="Name">
-                <input type="text" name="technologies_used" placeholder="Technologies Used">
+                <input type="text" name="technologies_used" placeholder="Technologies Used (comma separated)">
                 <textarea name="project_description" placeholder="Description"></textarea>
                 <br>
             `;
