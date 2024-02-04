@@ -7,6 +7,7 @@ from urllib.parse import quote_plus, urlencode
 
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
+from mongo_scripts.mongo import MongoManager
 
 import resume
 from dotenv import load_dotenv
@@ -32,6 +33,8 @@ sentences to be rephrased
 """
 
 client = OpenAI()
+mongo  = MongoManager()
+
 
 def call_gpt(prompt: str, model: str=MODEL, system_prompt: str=SYSTEM):
     completion = client.chat.completions.create(
@@ -47,7 +50,7 @@ ENV_FILE = find_dotenv()
 if ENV_FILE:
     load_dotenv(ENV_FILE)
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static")
 app.secret_key = 'We in this code'
 
 oauth = OAuth(app)
@@ -64,6 +67,7 @@ oauth.register(
 
 
 @app.route('/')
+@app.route('/index')
 def home():
     print(app.debug)
     return render_template("home.html", session=session.get('user'), title="Home")
@@ -79,8 +83,8 @@ def submission():
                 return redirect("/")
         except:
             return redirect("/")
-    else:
-        return render_template('index.html', title='Submission')
+
+    return render_template('index.html', title='Submission')
 
 @app.route('/submit_resume', methods=['POST'])
 def submit_resume():
@@ -123,11 +127,17 @@ def submit_resume():
         # print(jsonify(resume_data))
         resume_obj = resume.Resume(json.dumps(resume_data))
 
+        # print(f"Resume {json.dumps(resume_data)} - {str(resume_data)}")
         prompt = job_desc + "\n" + str(resume_obj)
+
+        # print(f"Prompt: {prompt}")        
+        mongo.add_resume(session["user"]["userinfo"]["email"] if not app.debug else "ajnettles@gmail.com", prompt)
 
         completion_object = call_gpt(prompt)
 
         response_text = str(completion_object.choices[0].message.content)
+
+        mongo.add_resumeGPT_pair(prompt, response_text)
 
         return response_text
     
