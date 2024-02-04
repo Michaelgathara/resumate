@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, flash, redirect
+from flask import Flask, render_template, url_for, flash, redirect, request
 
 
 app = Flask(__name__)
@@ -8,6 +8,12 @@ app = Flask(__name__)
 @app.route('/home')
 def index():
     return render_template('index.html', title='Home')
+
+@app.route('/submit_resume', methods=['GET', 'POST'])
+def submit_resume():
+    if request.method == 'POST':
+        filename = request.files['resume'].filename
+        return render_template("submit_resume.html", title="Resume Review", fileName = filename)
 
 # @app.route('/submit_resume', methods=['GET', 'POST'])
 # def submit_resume():
