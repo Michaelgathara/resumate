@@ -55,7 +55,7 @@ def main():
         "description": [
             "Authored a proceedings paper alongside esteemed doctors, addressing the use cases and essential precautions in AI integration within healthcare training.",
             "Aforementioned paper was accepted for presentation at the upcoming IMSH conference in January.",
-            "Collaboratively analyzed the technical aspects of Dr. Shannon Bailey’s research question, offering insights into potential bottlenecks by acknowledging constraints posed by technological limitations"
+            "Collaboratively analyzed the technical aspects of Dr. Shannon Bailey's research question, offering insights into potential bottlenecks by acknowledging constraints posed by technological limitations"
         ]
         }
     ],
@@ -110,7 +110,7 @@ def main():
     job_desc = """
         Position Overview
 
-    As a Data Engineer intern, you’ll be at the forefront of the Management Reporting Team’s mission to improve important data processing and analytics pipelines for our Subscription Models. You'll delve into research, find ways to transform data into relevant insights, while building pipelines to create the master data sets. You’ll also use Machine Learning techniques, to build and deploy AI models needed for our projects, working with our data engineers to ensure that our AI solutions are accurate, efficient, and scalable.
+    As a Data Engineer intern, you'll be at the forefront of the Management Reporting Team's mission to improve important data processing and analytics pipelines for our Subscription Models. You'll delve into research, find ways to transform data into relevant insights, while building pipelines to create the master data sets. You'll also use Machine Learning techniques, to build and deploy AI models needed for our projects, working with our data engineers to ensure that our AI solutions are accurate, efficient, and scalable.
 
     Responsibilities
 
@@ -138,7 +138,7 @@ def main():
 
     About The US Intern Program
 
-    The 2024 U.S. program runs for 12 weeks (May 20 – August 9 or June 17 – September 6). All internships are paid. As an intern, you will contribute to meaningful projects, be mentored by industry leaders, and participate in tech talks and other activities designed to support your personal and professional development. Our internships align with Autodesk’s Flexible Workplace approach, which is designed to meet the needs of our business while providing flexibility in support of office, remote and hybrid work preferences.
+    The 2024 U.S. program runs for 12 weeks (May 20 – August 9 or June 17 – September 6). All internships are paid. As an intern, you will contribute to meaningful projects, be mentored by industry leaders, and participate in tech talks and other activities designed to support your personal and professional development. Our internships align with Autodesk's Flexible Workplace approach, which is designed to meet the needs of our business while providing flexibility in support of office, remote and hybrid work preferences.
 
     Learn More
 
@@ -148,7 +148,7 @@ def main():
 
     We take great pride in our culture here at Autodesk – our Culture Code is at the core of everything we do. Our values and ways of working help our people thrive and realize their potential, which leads to even better outcomes for our customers.
 
-    When you’re an Autodesker, you can be your whole, authentic self and do meaningful work that helps build a better future for all. Ready to shape the world and your future? Join us!
+    When you're an Autodesker, you can be your whole, authentic self and do meaningful work that helps build a better future for all. Ready to shape the world and your future? Join us!
     """
     resume_obj = resume.Resume(resume_str)
 

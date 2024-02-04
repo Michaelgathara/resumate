@@ -128,7 +128,6 @@ def submit_resume():
         completion_object = call_gpt(prompt)
 
         response_text = str(completion_object.choices[0].message.content)
-        print(response_text)
 
         return response_text
     

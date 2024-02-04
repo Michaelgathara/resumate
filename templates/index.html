@@ -67,10 +67,35 @@
             bottom: 0;
         }
 
-        .right {
+        /* .right {
             right: 0;
             background-color: #eee;
             color: black;
+            /* display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            min-height: 1200px;
+            overflow-y: auto;
+        } */
+
+        .split.right {
+            right: 0;
+            background-color: #eee;
+            color: black;
+            display: flex; /* Add flex display */
+            flex-direction: column; /* Stack children vertically */
+            justify-content: flex-start; /* Align children to the start of the container */
+            /* align-items: center; Center children horizontally */
+            width: 50%; /* Match the width of the left split */
+            /* position: fixed; Keep if you want the right split to be fixed */
+            min-height: 100%; /* Full height */
+            top: 0;
+            overflow-y: scroll; /* Allow scrolling if content overflows */
+        }
+
+
+        .bottom {
+            bottom: 0;
         }
 
         .centered,
@@ -115,7 +140,8 @@
         }
 
         .form-input input,
-        .form-input textarea {
+        .form-input textarea,
+        .feedback {
             width: 450px;
             max-width: 90%;
             padding: 10px;
@@ -143,19 +169,6 @@
         .canvas {
             height: 1200px;
         }
-
-        /* .file-drop-area {
-            position: relative;
-            display: flex;
-            align-items: center;
-            width: 450px;
-            max-width: 100%;
-            padding: 25px;
-            border: 1px dashed rgba(255, 255, 255, 0.4);
-            border-radius: 3px;
-            transition: 0.2s;
-
-        } */
 
         .choose-file-button {
             flex-shrink: 0;
@@ -194,10 +207,16 @@
             background-color: rgba(255, 255, 255, 0.8);;
         }
 
-        .job-desc {
-            height: 450px;
-            vertical-align: text-top;
+        .job-desc, .feedback {
+            height: 300px;
+            /* vertical-align: text-top; */
         }
+
+        .left-text {
+            margin: 0 auto;
+            font-size: 1.4rem;
+        }
+
     </style>
 </head>
 
@@ -205,7 +224,7 @@
     <div class="main-container">
         <div class="split left">
             <canvas id="canvas" class="canvas"></canvas>
-            <form class="centered-form" method="post" action="/submit_resume" enctype="multipart/form-data">
+            <form id="resume-form" class="centered-form" method="post" enctype="multipart/form-data">
                 <div class="form-input">
                     <div class="file-drop-area">
                         <span class="choose-file-button">Choose files</span>
@@ -248,10 +267,20 @@
         <div class="split right">
             <form class="centered-form" method="post" action="/submit_resume">
                 <div class="form-input">
-                    <input type="text" id="job_desc" class="job-desc" name="job_desc" placeholder="Job Description">
+                    <p class="left-text">Job Desc</p>
                 </div>
-                <br>
+                <div class="form-input">
+                    <!-- <input type="text" id="job_desc" class="job-desc" name="job_desc" placeholder="Job Description"> -->
+                    <textarea placeholder="Job Description" name="job-desc" id="job_desc" class="job-desc" rows="14" cols="10"> </textarea>
+                </div>
+                <div class="form-input">
+                    <p class="left-text">Resume Feedback</p>
+                </div>
+                <div class="form-input">
+                    <textarea placeholder="feedback" name="feedback" id="feedback" class="feedback" rows="14" cols="10" readonly="true"> </textarea>
+                </div>
             </form>
+            <br>
         </div>
     </div>
     <script>
@@ -309,6 +338,29 @@
                 document.getElementById("hidden_job_desc").value = jobDesc;
             });
         });
+
+        $(document).ready(function() {
+            $('#resume-form').on('submit', function(e) {
+                e.preventDefault();  // Prevent the default form submission
+                var formData = $(this).serialize();  // Serialize the form data
+
+                // Perform the AJAX request
+                $.ajax({
+                    url: '/submit_resume',  // Your Flask endpoint
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        // Update the feedback textarea with the response
+                        $('#feedback').val(response);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle any errors here
+                        console.error("Error occurred: " + error);
+                    }
+                });
+            });
+        });
+
     </script>
 </body>
 
