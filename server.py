@@ -1,5 +1,4 @@
-from flask import Flask, render_template, url_for, flash, redirect, request
-from json import jsonify
+from flask import Flask, render_template, url_for, flash, redirect, request, jsonify
 
 app = Flask(__name__)
 
@@ -46,7 +45,7 @@ def submit_resume():
             }
             resume_data["projects"].append(project)
 
-        return jsonify(resume_data)
+        print(jsonify(resume_data))
     
 
 # def submit_resume():
