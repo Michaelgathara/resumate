@@ -29,10 +29,9 @@ oauth.register(
 
 
 @app.route('/')
-@app.route('/index')
 def home():
     print(app.debug)
-    return render_template("index.html", session=session.get('user'), title="Home")
+    return render_template("home.html", session=session.get('user'), title="Home")
 
 @app.route('/submission')
 def submission():
@@ -46,7 +45,7 @@ def submission():
         except:
             return redirect("/")
     else:
-        return render_template('submission.html', title='Submission')
+        return render_template('index.html', title='Submission')
 
 @app.route('/submit_resume', methods=['POST'])
 def submit_resume():
@@ -115,13 +114,6 @@ def submit_resume():
 
 
 
-@app.route("/callback", methods=["GET", "POST"])
-def callback():
-    token = oauth.auth0.authorize_access_token()
-    session["user"] = token
-    return redirect("/submission")
-
-
 @app.route("/login")
 def login():
     if not app.debug:
@@ -153,31 +145,6 @@ def callback():
     session["user"] = token
     return redirect("/submission")
 
-
-@app.route("/login")
-def login():
-    if not app.debug:
-        return oauth.auth0.authorize_redirect(
-            redirect_uri=url_for("callback", _external=True)
-        )
-    else:
-        return redirect("/submission")
-
-@app.route("/logout")
-def logout():
-    session.clear()
-    return redirect(
-        "https://"
-        + env.get("AUTH0_DOMAIN")
-        + "/v2/logout?"
-        + urlencode(
-            {
-                "returnTo": url_for("home", _external=True),
-                "client_id": env.get("AUTH0_CLIENT_ID"),
-            },
-            quote_via=quote_plus,
-        )
-    )
 
 # @app.route('/submit_resume', methods=['GET', 'POST'])
 # def submit_resume():
