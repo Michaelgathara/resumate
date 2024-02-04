@@ -2,6 +2,8 @@
     "experiences": [
         {
             "job_title": "Chamberlain Group Inc. | Software Engineering Intern",
+            "employer": "Chamberlain Group Inc.",
+            "job_type": "full_time",
             "description": [
                 "Migrated several projects in the delivery codebase into the .NET 6.0 ecosystem to ensure C# projects stay current",
                 "Built Python script to analyze and query over 70,000 user entries and generate combined dataset for external use",
@@ -11,6 +13,8 @@
         },
         {
             "job_title": "Fermi National Accelerator Laboratory | Student Researcher",
+            "employer": "Fermi National Accelerator Laboratory",
+            "job_type": "full_time",
             "description": [
                 "Filtered through signal and background events with a 98.2% efficiency with a DNN using TMVA framework",
                 "Wrote, updated, and optimized performance of C++ CMS software packages to handle specific jobs such as tracking inventory, storing and retrieving data, and controlling other equipment in a WSL environment",
@@ -20,6 +24,8 @@
         },
         {
             "job_title": "Kridagild Inc. | Software Engineering Intern",
+            "employer": "Kridagild Inc.",
+            "job_type": "full_time",
             "description": [
                 "Designed and implemented company website interface to enable ease of use, following Object-Oriented paradigm",
                 "Developed Python software to run the company system and minimize latency across distributed systems",
