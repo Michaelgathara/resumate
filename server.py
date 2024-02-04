@@ -70,8 +70,8 @@ def home():
 
 @app.route('/submission')
 def submission():
-    if not app.debug and session: 
-        print(session)
+    if not app.debug: 
+        # print(session)
         try:
             expiry = session["user"]["userinfo"]["exp"]
             if session.get("user", "NOACCESS") == "NOACCESS" or time.time() > expiry:
@@ -163,7 +163,8 @@ def login():
             redirect_uri=url_for("callback", _external=True)
         )
     else:
-        return redirect("/submission")
+        return render_template('index.html')
+        # return redirect("/submission")
 
 @app.route("/logout")
 def logout():
@@ -216,4 +217,4 @@ def callback():
 #     return render_template('job_listings.html', jobs=jobs, title='Job Listings')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=env.get("PORT", 7976 if app.debug else 443), debug=False)
+    app.run(host='0.0.0.0', port=env.get("PORT", 7976 if app.debug else 443), debug=True)
