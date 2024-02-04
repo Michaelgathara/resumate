@@ -173,8 +173,8 @@ def login():
             redirect_uri=url_for("callback", _external=True)
         )
     else:
-        return render_template('index.html')
-        # return redirect("/submission")
+        # return render_template('index.html')
+        return redirect("/submission")
 
 @app.route("/logout")
 def logout():
