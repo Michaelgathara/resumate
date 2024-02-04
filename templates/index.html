@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Resumate</title>
+    <script src="https://unpkg.com/starback@2.1.1/dist/starback.global.js"></script>
+    <style>
+        body,
+        html {
+            margin: 0 auto;
+        }
+
+        .split {
+            height: 100%;
+            width: 50%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .left {
+            left: 0;
+            background-color: #111;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right {
+            right: 0;
+            background-color: #eee;
+            color: black;
+        }
+
+        .centered,
+        .centered-form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+        }
+
+        .form-input {
+            margin-bottom: 20px;
+        }
+
+        .form-input input, .form-input textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 6px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .submit-button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+
+        .canvas {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="split left">
+            <canvas id="canvas" class="canvas"></canvas>
+            <form class="centered-form" method="post" action="/submit_resume">
+                <div class="form-input">
+                    <input type="text" id="name" name="name" placeholder="Name">
+                </div>
+                <div class="form-input">
+                    <input type="text" id="education" name="education" placeholder="Education">
+                </div>
+                <div class="form-input">
+                    <input type="text" id="experience" name="experience" placeholder="Experience">
+                </div>
+                <div class="form-input">
+                    <input type="text" id="projects" name="projects" placeholder="Projects">
+                </div>
+                <div class="form-input">
+                    <input type="text" id="skills" name="skills" placeholder="Skills">
+                </div>
+                <div class="form-input">
+                    <button type="submit" class="submit-button">Submit Resume</button>
+                </div>
+            </form>
+        </div>
+        <div class="split right">
+            <form class="centered-form" method="post" action="/submit_job">
+                <div class="form-input">
+                    <input type="text" id="job-link" name="job-link" placeholder="job-link">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        const canvas = document.getElementById('canvas')
+        const starback = new Starback(canvas, {
+            type: 'dot',
+            starSize: [0,2],
+            quantity: 500,
+            direction: 225,
+            backgroundColor: ['#000', '#000', '#0e1118', '#0e1118', '#232b3e'],
+            randomOpacity: true,
+        })
+      </script>
+</body>
+
+</html>
