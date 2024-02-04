@@ -1,0 +1,67 @@
+{
+    "experiences": [
+        {
+            "job_title": "Software Engineer Intern, Tech Mahindra (Plano, Texas)",
+            "description": [
+                "Utilized React.js to design a dynamic UI, facilitating student access to concise notes and quizzes from detailed lectures.",
+                "Trained GPT-3 on a dataset with lecture materials and common filler words, optimizing text summarization and note extraction.",
+                "Utilized AWS to implement multi-level caching, horizontal scaling, and Load Balancing to improve application scalability.",
+                "Technologies used : Express, GPT-3, JavaScript, Material UI, NLP, OpenAI API, React, Redux, TensorFlow"
+            ]
+        },
+        {
+            "job_title": "Software Development Engineer, Accenture (Bengaluru, India)",
+            "description": [
+                "Led a 4-member team as a seasoned SME for Marriott reservation system, handling client calls and representing offshore teams.",
+                "Responsible for the build of an inventory management portal which went live across 1300+ Marriott hotels worldwide.",
+                "Delivered 33% increase in Marriott.com\u2019s uptime by migrating clients legacy code to JavaScript and designing 25+ microservices.",
+                "Closed over 250 Git issues and reviewed 200+ merge requests, leading to a 30% boost in code quality.",
+                "Technologies used : CI/CD, Git, Express, JavaScript, JSX, ES6+, Node.js, Restful APIs, Microservices Error handling, NPM, Swagger"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "project_title": "HyperVisor Prototype : C++ | Virtual Machine| (project link)",
+            "description": [
+                "Developed a hypervisor using C++, enabling efficient creation, management, and replication of virtual machines."
+            ]
+        },
+        {
+            "project_title": "Algorithmic Bot for IntraDay Trading : Flask | Python | (project link)",
+            "description": [
+                "Delivered consistent 4-6% monthly returns with 60+ winning trades on NSE, all executed algorithmically."
+            ]
+        },
+        {
+            "project_title": "Decentralized Platform for Counterfeit Drugs : React | JavaScript | PhP | Laravel | SQL |(project link)",
+            "description": [
+                "Led a team to build an android app and a responsive website catering to needs of five diverse user personas of pharma Industry.",
+                "Conducted UI testing with Espresso and load testing using JMeter; identified and resolved memory leaks improving app stability.",
+                "Reached 150+ Downloads on Play Store and won India's Biggest Software Hackathon with 4000+ participants."
+            ]
+        },
+        {
+            "project_title": "Smart Collaboration Tool for Infleuncer : JavaScript | Rest APIs | PostMan | (project link)",
+            "description": [
+                "Developed Collaborative Filtering algorithm bosting recommendation; APIs to evaluate Instagram metrics, bosting collaboration.",
+                "Leveraged Room Database for efficient local data storage and Retrofit for streamlined data retrieval from REST web services"
+            ]
+        },
+        {
+            "project_title": "Robot Simulation on Cloud : AWS | Docker | MongoDB | React JS |(project link)",
+            "description": [
+                "Built website using MERN ; Integrated backend using MongoDB for RoboMaker logs and Amazon RDS for registered robots.",
+                "Achieved a 80% decrease in issue resolution time by integrating AWS CloudWatch with Docker for container monitoring."
+            ]
+        }
+    ],
+    "skills": [
+        "Programming Languages : C/C++, Java,, JavaScript, Python, Ruby",
+        "Web Technologies : Angular, Bootstrap, Express, ES6+, JQuery, GraphQL, React, Redux, Webpack",
+        "Databases : Postgres, SQL, MongoDB",
+        "Python Libraries: Pandas, NumPy, Tensorflow",
+        "AWS Cloud : CloudWatch, RDS, S3, Lambda, API Gateway, EC2",
+        "Other Technologies : Agile, McOS, Git, Jira, MS Office, Linux/UNIX, OkHttp, Scrum, Retrofit 2, Mockito, Selenium"
+    ]
+}

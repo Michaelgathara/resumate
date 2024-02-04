@@ -1,0 +1,71 @@
+{
+    "experiences": [
+        {
+            "job_title": "Learning Center at my School | Matched Academic Mentor",
+            "description": [
+                "Leads weekly sessions to help students develop conceptual understanding and problem-solving strategies for Matrix Algebra and Differential Equations"
+            ]
+        },
+        {
+            "job_title": "Healthcare Software Startup | Strategy Intern",
+            "description": [
+                "Utilized PostgreSQL to analyze DME order data and identify top-performing doctors, cities, and states that lead in"
+            ]
+        },
+        {
+            "job_title": "prescribing the most durable medical equipment, enabling targeted marketing strategies to attract new users",
+            "description": [
+                "Optimized salesmen\u2019s routes through states to maximize annual recurring revenue, creating opportunities for"
+            ]
+        },
+        {
+            "job_title": "salesmen to generate potential annual recurring revenues of $8.9 million",
+            "description": [
+                "Identified and flagged 1400+ instances of invalid zip codes within the database of doctors, clinical facilities, suppliers, and supplier legal entities"
+            ]
+        },
+        {
+            "job_title": "Healthcare Startup | Data Analytics Intern",
+            "description": [
+                "Structured database of English-speaking medical clinics and doctors in Africa, Australia, and Europe",
+                "Developed data visualizations to communicate feedback from the pilot program, resulting in enhanced comprehension and actionable insights"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "project_title": "Merchant Recommender | Python, Flask, Open Banking API, OpenAI API, Supabase, Matplotlib",
+            "description": [
+                "Developed a Flask-based web application for *hackathon at my school* that interfaces with Mastercard\u2019s Open"
+            ]
+        },
+        {
+            "project_title": "Banking API which enables users to securely access their bank transaction data in real-time",
+            "description": [
+                "Incorporated the OpenAI API to analyze user transaction histories and generate personalized vendor"
+            ]
+        },
+        {
+            "project_title": "recommendations",
+            "description": [
+                "Utilized Supabase for efficient backend data management and streamlined user data operations",
+                "Designed an interactive dashboard with Matplotlib presenting transaction summaries and spending patterns"
+            ]
+        },
+        {
+            "project_title": "Discord Math Solver Bot | Python, Flask, Wolfram Alpha API, OpenAI API",
+            "description": [
+                "Developed a Discord bot that solves mathematical problems using the Wolfram Alpha API",
+                "Integrated with OpenAI API to convert results into LaTeX equations for improved formatting",
+                "Employed Pillow for image processing to render LaTeX equations into shareable and readable images",
+                "Created a Flask-based service to keep the bot continuously running"
+            ]
+        }
+    ],
+    "skills": [
+        "Languages: Python, Java, SQL (Postgres), R",
+        "Frameworks/Libraries: pandas, Flask, Matplotlib",
+        "Developer Tools: Git, Docker, Kubernetes, VS Code, Eclipse, RStudio",
+        "Software: Microsoft Office, Tableau Desktop"
+    ]
+}

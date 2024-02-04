@@ -1,0 +1,64 @@
+{
+    "experiences": [
+        {
+            "job_title": "Chamberlain Group Inc. | Software Engineering Intern",
+            "description": [
+                "Migrated several projects in the delivery codebase into the .NET 6.0 ecosystem to ensure C# projects stay current",
+                "Built Python script to analyze and query over 70,000 user entries and generate combined dataset for external use",
+                "Practiced dependency injection and built integration tests to assess multiple services and bolster performance",
+                "Worked with Azure DataFactory and CosmosDB to filter and migrate 20,000 user entries"
+            ]
+        },
+        {
+            "job_title": "Fermi National Accelerator Laboratory | Student Researcher",
+            "description": [
+                "Filtered through signal and background events with a 98.2% efficiency with a DNN using TMVA framework",
+                "Wrote, updated, and optimized performance of C++ CMS software packages to handle specific jobs such as tracking inventory, storing and retrieving data, and controlling other equipment in a WSL environment",
+                "Processed over 26,000 PYTHIA-generated particle interactions by working with group\u2019s data-handling software",
+                "Reported experimental results by publishing paper for arXiv and by presenting information at IMSAloquium"
+            ]
+        },
+        {
+            "job_title": "Kridagild Inc. | Software Engineering Intern",
+            "description": [
+                "Designed and implemented company website interface to enable ease of use, following Object-Oriented paradigm",
+                "Developed Python software to run the company system and minimize latency across distributed systems",
+                "Managed a user database run on a Google Cloud Computing server to enable far-reaching access"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "project_title": "AI Development Tool | ASP.NET, C#, Kaggle, Keras, Python, React, TensorFlow",
+            "description": [
+                "Headed small team to create site that allows users to change training parameters and generate TensorFlow code",
+                "Site used Bootstrap form that gathers training and layer specifications to build an ANN or CNN",
+                "Used site to train a CNN on 27,000 images and classified age, gender, and ethnicity with 89% accuracy",
+                "Used site to train an ANN on a data set of banknotes to predict a person\u2019s class with 97% accuracy"
+            ]
+        },
+        {
+            "project_title": "Pattern Matching Perceptron | C#, Git, .NET 6.0",
+            "description": [
+                "Built an LSTM neural net without any ML libraries to predict the next 10 numbers in a sequence of user inputs",
+                "Developed class for supervised perceptron and gradient descent algorithm to hone in on desired set of weights",
+                "Employed tabulation and least squares regression to predict values based on most recent inputs",
+                "Answered correctly for standard and irregular sequences (linear, quadratic, recursive, exponential, trigonometric)"
+            ]
+        },
+        {
+            "project_title": "Fullstack Course Selector | Bootstrap, CSS, HTML, Node.js, Python, TensorFlow",
+            "description": [
+                "Worked as a full-stack developer with a team of 6 to create a site containing information on course offerings",
+                "Enabled student access to over 160 course syllabi by implementing a course search feature",
+                "Provided course recommendations based on 600 students\u2019 experiences by implementing a Random Forest regressor"
+            ]
+        }
+    ],
+    "skills": [
+        "Languages: Python, Java, C/C++, Assembly, Verilog, C#, SQL, HTML/CSS, JavaScript",
+        "Frameworks: React, Node.js, ASP.NET, Azure, AWS, GCP, Bootstrap, CI/CD, Scrum/Agile, WinForm",
+        "Developer Tools: Git, Docker, Visual Studio, CosmosDB, Linux, Jira, Kubernetes, DevOps, xUnit, VMWare",
+        "Libraries: Flask, NumPy, Pandas, Matplotlib, TensorFlow"
+    ]
+}

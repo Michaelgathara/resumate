@@ -1,0 +1,67 @@
+{
+    "experiences": [
+        {
+            "job_title": "Big Finance Company | Software Engineer Intern",
+            "description": [
+                "Designed Wireframes and 7 Prototypes of a Securities Exchange platform, aiding in the patent process, with Figma",
+                "Engineered a Full Stack Trading Platform, that will exchange millions of dollars, implementing Angular and Oracle SQL",
+                "Founded an NLP Research Project, with a team of Interns to enhance company operations such as onboarding"
+            ]
+        },
+        {
+            "job_title": "Tech Unicorn | Software Engineer Co-Op",
+            "description": [
+                "Modernized 3 company projects, by updating old design components in Figma, and integrating new components in React",
+                "Improved 5 Projects\u2019 functionality and reduced throttling by Refactoring and Expanding existing Redux & Flask APIs",
+                "Created a CI/CD ReactJS app to aid students in increasing grades by consulting a team of Data Scientists and UX Designers"
+            ]
+        },
+        {
+            "job_title": "Big Insurance Company | Software Engineer Intern",
+            "description": [
+                "Developed a REST API for Uber, hosted on Amazon\u2019s API Gateway, reducing previous request load time by 35%",
+                "Created AWS Lambda Functions for Uber to modify insurance data stored in AWS Aurora, decreasing call time by 24%",
+                "Launched an internal advice-sharing app in 1 week, leading an Agile Intern Team as a Project Manager & UI/UX Designer",
+                "Optimized AWS Project setup time by 2 hours, by assisting in the development of an AWS CDK Constructs Python template"
+            ]
+        },
+        {
+            "job_title": "College | Teacher\u2019s Assistant",
+            "description": [
+                "Coached students using experience in Python, utilizing team exercises, leading to 20% increases in exam grades",
+                "Reduced grading time by 65% for assignments done in Python and Java for Computer Science 1, leveraging Python scripts"
+            ]
+        },
+        {
+            "job_title": "Big City Government\u2019s Tech Department | Data Engineer Intern",
+            "description": [
+                "Developed a REST API to streamline users\u2019 time by aggregating over 23 data sources to just 1 using Java Spring Boot",
+                "Designed a Responsive Angular UI to view data, eliminating the need for users to parse through 100+ JSON files",
+                "Decreased request wait time for a Secure Document Transfer App\u2019s REST API by 43%"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "project_title": "Music Soulmate | Next.js, Spotify API, React, MongoDB, Node, Python (Spotipy)",
+            "description": [
+                "Constructed a full-stack music taste-matching app, applying the Spotify API, OAuth2 authentication, and ReactJS",
+                "Administered Spotify API integration to process users\u2019 music data, using Spotipy for tailored music recommendations",
+                "Devised music taste algorithms by leveraging Python\u2019s data analysis libraries, for precise music preference matching"
+            ]
+        },
+        {
+            "project_title": "Wisely | React, Java, Spring Boot, Maven, PostgreSQL, Git",
+            "description": [
+                "Built an app to keep track of users\u2019 financial status, spending habits, saving goals, and affordability checks for purchases",
+                "Implemented Responsive Design to make a CRUD app using ReactJS, a Spring REST API, and a PostgreSQL database",
+                "Practiced Software Engineering practices, planning out a design document, UML Diagrams, and Sequence Diagrams"
+            ]
+        }
+    ],
+    "skills": [
+        "Languages: Java, Python, HTML/CSS, SQL, JavaScript, TypeScript, C, C++, Dart",
+        "Frameworks: Next.js, Selenium, Pytest, JUnit, React, Angular, Maven, Jest, Flask, Next, Flutter, Redux",
+        "Developer Tools: Git, Figma, AWS, Postman, Insomnia, PostgreSQL, Terraform, CloudForge, Jira"
+    ]
+}

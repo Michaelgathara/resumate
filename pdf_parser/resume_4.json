@@ -1,0 +1,61 @@
+{
+    "experiences": [
+        {
+            "job_title": "Product Development Intern|Location",
+            "description": [
+                "Developed a web API using javascript to test pre-configured UDS/Ethernet/Bluetooth tests on physical and simulation vehicles hosted on AWS containers for integration with the (existing tool name)",
+                "Merged newly written code with pre-existing open source software in C and Python order to link up low level CAN traffic from a physical vehicle to container hosted on a web interface accessible from anywhere through the internet",
+                "Created documentation and walkthroughs for vehicle cybersecurity challenges for a paid platform of over 100 active users",
+                "Tested for common threats and vulnerabilities, using tools and techniques for detection and mitigation in local and cloud deployment service environments"
+            ]
+        },
+        {
+            "job_title": "Computer Consultant I|Location",
+            "description": [
+                "Developed and oversaw an automatic python script to print out proof of sanitization on drives with sensitive user data",
+                "Took charge of completing tickets filed by students and staff on personal/school properties, configuring VPNs, troubleshooting group policy issues, and completing orders through university-approved retailers",
+                "Successfully expanded computer to serve over 100 PhD students and researchers fitted with operating systems and applications"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "project_title": "TestTrojan",
+            "description": [
+                "Created an open source ransomware in python for testing and antivirus training related purposes",
+                "Developed an encryptor and a decryptor using the PyCrypto library and the RSA Algorithm",
+                "Completed thorough testing through variety of Windows (7, 10, 11) and Linux (Ubuntu, Debian, Kali) Virtual Machines to verify"
+            ]
+        },
+        {
+            "project_title": "stability and undetectability",
+            "description": [
+                "Compiled binary file detected as malicious by 2/62 antiviruses on VirusTotal"
+            ]
+        },
+        {
+            "project_title": "LC2K Assembler",
+            "description": [
+                "Developed a C program to take in simple assembly files with limited instructions and produce a machine-readable file",
+                "Added multi-file interpretation of projects and created a linker to combine multiple files into a single executable file",
+                "Created a simulated cache and CPU to be accessed by the program with simulated memory initialization",
+                "Developed a cycle-accurate pipeline implementation of the LC2K, complete with data forwarding and simple branch prediction"
+            ]
+        },
+        {
+            "project_title": "Raspberry Pi Home Server",
+            "description": [
+                "Hosting a personal Node.js web server and email server run through PM2 and Cloudflare DDNS through nginx",
+                "Dockerized an Alpine Linux VPN server connected to multiple nodes globally acting as a reverse proxy for the webserver",
+                "Simplified all logging and configuration through bash scripts to keep packages up to date and automatic log monitoring",
+                "Configured all necessary security settings through key-based SSH, limiting exposed ports, and utilizing software tools such as Fail2ban and ClamAV"
+            ]
+        }
+    ],
+    "skills": [
+        "Languages: Native-level spoken, reading, and written fluency in English and Korean, basic literacy in Spanish",
+        "Programming Languages: C++, Python, Java, mySQL, Shell, HTML, Javascript, Node.js, Cisco CLI",
+        "Skills: Network Security, Cryptography, Web Pentesting, CAN bus communication, ISO14229/UDS protocol",
+        "Certifications: CompTIA Security+ 601CE"
+    ]
+}

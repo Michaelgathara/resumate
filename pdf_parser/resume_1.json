@@ -1,0 +1,44 @@
+{
+    "experiences": [
+        {
+            "job_title": "XXYY Software LLC | Founder and CEO",
+            "description": [
+                "Recently launched a software as a service startup which automates purchasing discounted items on e-commerce sites. Currently grossing $34k in monthly recurring revenue and has saved customers $22.2 million to date.",
+                "Led the full-stack development of our desktop application and web services in Node.js, Typescript, and Electron, automating hundreds of thousands of HTTP requests daily to deliver real time pricing data."
+            ]
+        },
+        {
+            "job_title": "XXYYZZ | Software Engineering Intern",
+            "description": [
+                "Developed an internal tool to ensure all laptops meet backup service level agreements. Queried information in SQL and fetched data using Javascript from various REST APIs",
+                "Worked with XXYYZZ Cloud services, including VM Provisioning and Report Generation, and used Microsoft Azure APIs to automatically exclude terminated employees from outage reports, saving 55% of manual review time"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "project_title": "TLS Mimicry API",
+            "description": [
+                "Purpose built for privacy protection. Proxies requests using a fork of go\u2019s networking library (fhttp) and my fork of"
+            ]
+        },
+        {
+            "project_title": "cclient (TLS fingerprint library) to prevent fingerprinting at the TLS stack level through browser mimicry.",
+            "description": [
+                "Built with Golang. Supports Mimicry of Chrome, Firefox, and Safari iOS. Also mimics header order, HTTP/2 connection settings & server push, user agent"
+            ]
+        },
+        {
+            "project_title": "Instacart Monitor",
+            "description": [
+                "Built with Node.js. Started using Puppeteer headless browsers and delivering Discord notifications, switched to checking availability through requests to a REST API and delivering SMS notifications with Twillio."
+            ]
+        }
+    ],
+    "skills": [
+        "Languages: TypeScript, Node.js, Golang, Python, Java, HTML/CSS/JS, C++, SQL, Rust, Bash,",
+        "Favorite Libraries/DBs:: Express, Requests, OpenCV, NumPy, mySQL, MongoDB, React, Vue, Tensorflow, Keras",
+        "Favorite Tools: Git, Github Actions, CircleCI, Slack, Fusion 360, Visual Studio Code, Goland, Wordpress, LaTeX",
+        "Interests: Graphic Design, European History, Hip-Hop Music Production, Violin, Consumer Tech"
+    ]
+}

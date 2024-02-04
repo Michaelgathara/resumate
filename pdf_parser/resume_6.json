@@ -1,0 +1,52 @@
+{
+    "experiences": [
+        {
+            "job_title": "Software Developer Intern",
+            "description": [
+                "Designed and implemented scalable cloud infrastructure using Terraform, leveraging Amazon S3 for efficient storage of automated testing dashboards hosted on Cloudfront.",
+                "Leveraged GitHub Actions to develop a real-time dashboard, providing comprehensive insights into the outcomes of tests conducted within the last 30 days, allowing teams to tailor it to their own requirements",
+                "Utilized Playwright to write automated end-to-end tests that covered critical user journeys and functionality of"
+            ]
+        },
+        {
+            "job_title": "Full Stack Developer - Website Lead | web applications",
+            "description": [
+                "Led a team of 7 members in developing a full-stack application for the Hackathon allowing the website to have a streamlined registration process while simultaneously providing an interactive platform for participants to view and join different teams",
+                "Did code reviews on peer\u2019s work to ensure quality of the code",
+                "Scheduled team meetings to ensure issue resolution, project tracking and to improve team chemistry"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "project_title": "Emotion playlist generator | Flask, React, TailwindCSS, Python NLTK, Spotify API",
+            "description": [
+                "Built a web application that generates a music playlist based on emotions obtained from user input",
+                "Used a natural language processing library to map text input to emotions for a customized experience",
+                "Used the Spotify API to obtain playlists by giving it the extracted emotions"
+            ]
+        },
+        {
+            "project_title": "Discussion Forum | React, MaterialUI, Node.js, Express.js, MongoDB",
+            "description": [
+                "Built as part of Morgan Stanley\u2019s Code to Give Hackathon in collaboration with 7 people",
+                "Built a modern and responsive full-stack web application that encourages youth from all around the world to share challenges and ideas"
+            ]
+        },
+        {
+            "project_title": "Online Grocery Store: | PHP, MySQL, HTML, Bootstrap, JavaScript",
+            "description": [
+                "Implemented the entire login system to allow CRUD operations on the user list and database",
+                "Developed a frontend application through industry standard tools including Bootstrap, HTML and custom CSS styling"
+            ]
+        }
+    ],
+    "skills": [
+        "Languages: Java, Python, C/C++, JavaScript, HTML/CSS, OCaml, TypeScript, JavaScript",
+        "Frameworks: React, Next.js, Node.js, Flask, Material-UI, Bootstrap, TailwindCSS, Express.js, Playwright",
+        "Developer Tools: Git, Bash, Github, Docker, GitHub Actions, Terraform",
+        "Skills: Communication, Multi-tasking, Adaptibility, Teamwork",
+        "Relevant Coursework",
+        "Data Structures and Algorithms, Algorithm Design, Software Design, Programming Languages and Paradigms"
+    ]
+}
