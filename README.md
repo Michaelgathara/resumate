@@ -6,3 +6,4 @@
 Auburn Hacks 2024 Winner
  - Best Overall Winner
  - Best use case of MongoDB winner
+ - https://devpost.com/software/resumate-bwk81m
